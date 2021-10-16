@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Watc.Data", "Watc.Data\Watc.Data.csproj", "{D6F81FB4-A7F9-44E1-9114-7EB12B54A06D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Watc.UI", "Watc.UI\Watc.UI.csproj", "{A6875A71-8DD1-45C9-ADB0-F55C079829D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6F81FB4-A7F9-44E1-9114-7EB12B54A06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F81FB4-A7F9-44E1-9114-7EB12B54A06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F81FB4-A7F9-44E1-9114-7EB12B54A06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F81FB4-A7F9-44E1-9114-7EB12B54A06D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6875A71-8DD1-45C9-ADB0-F55C079829D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6875A71-8DD1-45C9-ADB0-F55C079829D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6875A71-8DD1-45C9-ADB0-F55C079829D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6875A71-8DD1-45C9-ADB0-F55C079829D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DAE100F-41AE-4BA5-8D23-1445FBE0DAD2}
+	EndGlobalSection
+EndGlobal
