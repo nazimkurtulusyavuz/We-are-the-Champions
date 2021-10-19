@@ -56,23 +56,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAddRemovePlayers.cs">
+    <Compile Include="FrmAddColorToSelectedTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddRemovePlayers.Designer.cs">
-      <DependentUpon>FrmAddRemovePlayers.cs</DependentUpon>
+    <Compile Include="FrmAddColorToSelectedTeam.Designer.cs">
+      <DependentUpon>FrmAddColorToSelectedTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmColors.cs">
+    <Compile Include="FrmAddRemovePlayersFromTheSelectedTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmColors.Designer.cs">
-      <DependentUpon>FrmColors.cs</DependentUpon>
+    <Compile Include="FrmAddRemovePlayersFromTheSelectedTeam.Designer.cs">
+      <DependentUpon>FrmAddRemovePlayersFromTheSelectedTeam.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEditSelectedMatch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditSelectedMatch.Designer.cs">
       <DependentUpon>FrmEditSelectedMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditSelectedPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditSelectedPlayer.Designer.cs">
+      <DependentUpon>FrmEditSelectedPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmHome.cs">
       <SubType>Form</SubType>
@@ -86,28 +92,25 @@
     <Compile Include="FrmNewMatch.Designer.cs">
       <DependentUpon>FrmNewMatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOyuncular.cs">
+    <Compile Include="FrmNewPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOyuncular.Designer.cs">
-      <DependentUpon>FrmOyuncular.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmTeams.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTeams.Designer.cs">
-      <DependentUpon>FrmTeams.cs</DependentUpon>
+    <Compile Include="FrmNewPlayer.Designer.cs">
+      <DependentUpon>FrmNewPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAddRemovePlayers.resx">
-      <DependentUpon>FrmAddRemovePlayers.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAddColorToSelectedTeam.resx">
+      <DependentUpon>FrmAddColorToSelectedTeam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmColors.resx">
-      <DependentUpon>FrmColors.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAddRemovePlayersFromTheSelectedTeam.resx">
+      <DependentUpon>FrmAddRemovePlayersFromTheSelectedTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditSelectedMatch.resx">
       <DependentUpon>FrmEditSelectedMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditSelectedPlayer.resx">
+      <DependentUpon>FrmEditSelectedPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
@@ -115,11 +118,8 @@
     <EmbeddedResource Include="FrmNewMatch.resx">
       <DependentUpon>FrmNewMatch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOyuncular.resx">
-      <DependentUpon>FrmOyuncular.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmTeams.resx">
-      <DependentUpon>FrmTeams.cs</DependentUpon>
+    <EmbeddedResource Include="FrmNewPlayer.resx">
+      <DependentUpon>FrmNewPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

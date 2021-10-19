@@ -38,10 +38,9 @@ namespace Watc.UI
             this.btnCreateNewMatch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.nudTeam2Score = new System.Windows.Forms.NumericUpDown();
-            this.nudTeam1Score = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTeam2Score)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTeam1Score)).BeginInit();
+            this.txtTeam1Score = new System.Windows.Forms.TextBox();
+            this.txtTeam2Score = new System.Windows.Forms.TextBox();
+            this.chkAllowDtp = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cbFirstTeamName
@@ -85,7 +84,7 @@ namespace Watc.UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 57);
+            this.label3.Location = new System.Drawing.Point(5, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 4;
@@ -95,7 +94,7 @@ namespace Watc.UI
             // 
             this.dtpDateTime.CustomFormat = "dd.MMM.yyyy hh:mm tt";
             this.dtpDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateTime.Location = new System.Drawing.Point(124, 50);
+            this.dtpDateTime.Location = new System.Drawing.Point(380, 85);
             this.dtpDateTime.Name = "dtpDateTime";
             this.dtpDateTime.Size = new System.Drawing.Size(153, 20);
             this.dtpDateTime.TabIndex = 6;
@@ -103,9 +102,9 @@ namespace Watc.UI
             // 
             // btnCreateNewMatch
             // 
-            this.btnCreateNewMatch.Location = new System.Drawing.Point(7, 79);
+            this.btnCreateNewMatch.Location = new System.Drawing.Point(8, 111);
             this.btnCreateNewMatch.Name = "btnCreateNewMatch";
-            this.btnCreateNewMatch.Size = new System.Drawing.Size(476, 25);
+            this.btnCreateNewMatch.Size = new System.Drawing.Size(525, 25);
             this.btnCreateNewMatch.TabIndex = 8;
             this.btnCreateNewMatch.Text = "Create a Match";
             this.btnCreateNewMatch.UseVisualStyleBackColor = true;
@@ -129,27 +128,39 @@ namespace Watc.UI
             this.label12.TabIndex = 25;
             this.label12.Text = "Score of the Second Team";
             // 
-            // nudTeam2Score
+            // txtTeam1Score
             // 
-            this.nudTeam2Score.Location = new System.Drawing.Point(425, 30);
-            this.nudTeam2Score.Name = "nudTeam2Score";
-            this.nudTeam2Score.Size = new System.Drawing.Size(58, 20);
-            this.nudTeam2Score.TabIndex = 31;
+            this.txtTeam1Score.Location = new System.Drawing.Point(432, 3);
+            this.txtTeam1Score.Name = "txtTeam1Score";
+            this.txtTeam1Score.Size = new System.Drawing.Size(100, 20);
+            this.txtTeam1Score.TabIndex = 33;
             // 
-            // nudTeam1Score
+            // txtTeam2Score
             // 
-            this.nudTeam1Score.Location = new System.Drawing.Point(425, 3);
-            this.nudTeam1Score.Name = "nudTeam1Score";
-            this.nudTeam1Score.Size = new System.Drawing.Size(58, 20);
-            this.nudTeam1Score.TabIndex = 32;
+            this.txtTeam2Score.Location = new System.Drawing.Point(432, 31);
+            this.txtTeam2Score.Name = "txtTeam2Score";
+            this.txtTeam2Score.Size = new System.Drawing.Size(100, 20);
+            this.txtTeam2Score.TabIndex = 34;
+            // 
+            // chkAllowDtp
+            // 
+            this.chkAllowDtp.AutoSize = true;
+            this.chkAllowDtp.Location = new System.Drawing.Point(8, 62);
+            this.chkAllowDtp.Name = "chkAllowDtp";
+            this.chkAllowDtp.Size = new System.Drawing.Size(249, 17);
+            this.chkAllowDtp.TabIndex = 36;
+            this.chkAllowDtp.Text = "Click here if you wanna arrange the Mach Time";
+            this.chkAllowDtp.UseVisualStyleBackColor = true;
+            this.chkAllowDtp.CheckedChanged += new System.EventHandler(this.chkAllowDtp_CheckedChanged);
             // 
             // FrmNewMatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 116);
-            this.Controls.Add(this.nudTeam2Score);
-            this.Controls.Add(this.nudTeam1Score);
+            this.ClientSize = new System.Drawing.Size(546, 152);
+            this.Controls.Add(this.chkAllowDtp);
+            this.Controls.Add(this.txtTeam2Score);
+            this.Controls.Add(this.txtTeam1Score);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnCreateNewMatch);
@@ -161,8 +172,6 @@ namespace Watc.UI
             this.Controls.Add(this.cbFirstTeamName);
             this.Name = "FrmNewMatch";
             this.Text = "FrmNemMatch";
-            ((System.ComponentModel.ISupportInitialize)(this.nudTeam2Score)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTeam1Score)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,7 +188,8 @@ namespace Watc.UI
         private System.Windows.Forms.Button btnCreateNewMatch;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown nudTeam2Score;
-        private System.Windows.Forms.NumericUpDown nudTeam1Score;
+        private System.Windows.Forms.TextBox txtTeam1Score;
+        private System.Windows.Forms.TextBox txtTeam2Score;
+        private System.Windows.Forms.CheckBox chkAllowDtp;
     }
 }

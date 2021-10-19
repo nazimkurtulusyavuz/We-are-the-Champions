@@ -22,5 +22,9 @@ namespace Watc.Data
 
         public virtual ICollection<Match> Matches { get; set; }
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
