@@ -32,12 +32,12 @@ namespace Watc.UI
             this.label1 = new System.Windows.Forms.Label();
             this.lblTeamName = new System.Windows.Forms.Label();
             this.dgvTeamPlayers = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddPlayerToTeam = new System.Windows.Forms.Button();
             this.btnRemoveSelectedPlayer = new System.Windows.Forms.Button();
             this.cbAllPlayers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeamPlayers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +78,20 @@ namespace Watc.UI
             this.dgvTeamPlayers.Size = new System.Drawing.Size(267, 205);
             this.dgvTeamPlayers.TabIndex = 2;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "PlayerName";
+            this.Column2.HeaderText = "Player Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // btnAddPlayerToTeam
             // 
             this.btnAddPlayerToTeam.Location = new System.Drawing.Point(318, 141);
@@ -116,20 +130,6 @@ namespace Watc.UI
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Select a Player To Add";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "PlayerName";
-            this.Column2.HeaderText = "Player Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // FrmAddRemovePlayersFromTheSelectedTeam
             // 

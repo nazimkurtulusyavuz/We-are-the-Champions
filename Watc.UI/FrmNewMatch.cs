@@ -13,8 +13,8 @@ namespace Watc.UI
 {
     public partial class FrmNewMatch : Form
     {
-        WatcContext db;
-
+        readonly WatcContext db;
+        
         public FrmNewMatch(WatcContext db)
         {
             this.db = db;
@@ -75,7 +75,16 @@ namespace Watc.UI
             }
 
             DateTime? matchtime = chkAllowDtp.Checked == false ? null : (DateTime?)dtpDateTime.Value;
-            
+
+            //constructorla gelen macın ıcını burda doldur daha sonra db.Matches.Add(...ılgılı match---) yap
+            //match.MatchDateTime= matchtime.ToString();
+            //match.Team1Name = team1.Name;
+            //match.Team2 = team2.Name;
+            //match.Score1 = score1.;
+            //match.Score2= score2;
+            //match.Result = (score1 == null || score2 == null) ? Result.none :
+            //    (score1 == score2 ? Result.even : score1 > score2 ? Result.team1Win : Result.team2Win);
+
             db.Matches.Add(new Match()
             {
                 MatchTime = matchtime,
@@ -84,8 +93,8 @@ namespace Watc.UI
                 Score1 = score1,
                 Score2 = score2,
                 //Result = score1 == score2 ? Result.even : score1 > score2 ? Result.team1Win : Result.team2Win, doğrusu
-                Result = (score1 == null || score2 == null) ? Result.none : 
-                ( score1 == score2 ? Result.even : score1 > score2 ? Result.team1Win : Result.team2Win ),
+                Result = (score1 == null || score2 == null) ? Result.none :
+                (score1 == score2 ? Result.even : score1 > score2 ? Result.team1Win : Result.team2Win),
             });
 
             db.SaveChanges();

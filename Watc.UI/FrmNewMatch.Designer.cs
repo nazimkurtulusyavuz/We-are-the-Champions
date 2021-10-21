@@ -157,7 +157,7 @@ namespace Watc.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 152);
+            this.ClientSize = new System.Drawing.Size(546, 150);
             this.Controls.Add(this.chkAllowDtp);
             this.Controls.Add(this.txtTeam2Score);
             this.Controls.Add(this.txtTeam1Score);

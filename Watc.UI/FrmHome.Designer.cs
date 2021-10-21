@@ -35,10 +35,6 @@ namespace Watc.UI
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.chbHidePlayedMatches = new System.Windows.Forms.CheckBox();
             this.dgvMatches = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCreateNewMatch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -46,6 +42,8 @@ namespace Watc.UI
             this.txtNewTeamName = new System.Windows.Forms.TextBox();
             this.dgvTeams = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAllTeams = new System.Windows.Forms.Label();
             this.btnAddRemovePlayer = new System.Windows.Forms.Button();
             this.btnCreateNewTeam = new System.Windows.Forms.Button();
@@ -76,13 +74,18 @@ namespace Watc.UI
             this.btnDeleteSelectedPlayer = new System.Windows.Forms.Button();
             this.btnEditSelectedPlayer = new System.Windows.Forms.Button();
             this.rbShowPlayersAccordingtoTeam = new System.Windows.Forms.RadioButton();
-            this.btCreateNewPlayer = new System.Windows.Forms.Button();
+            this.BtnCreateNewPlayer = new System.Windows.Forms.Button();
             this.rbShowAllPlayers = new System.Windows.Forms.RadioButton();
             this.lblSelectTeamToSeePlayers = new System.Windows.Forms.Label();
             this.chkTeamsToListPlayers = new System.Windows.Forms.ComboBox();
             this.dgvPlayers = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
@@ -154,6 +157,7 @@ namespace Watc.UI
             // dgvMatches
             // 
             this.dgvMatches.AllowUserToAddRows = false;
+            this.dgvMatches.AllowUserToDeleteRows = false;
             this.dgvMatches.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -161,6 +165,7 @@ namespace Watc.UI
             this.dgvMatches.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatches.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column9,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -173,34 +178,6 @@ namespace Watc.UI
             this.dgvMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMatches.Size = new System.Drawing.Size(513, 270);
             this.dgvMatches.TabIndex = 9;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Team1Name";
-            this.Column1.HeaderText = "First Team";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Team2Name";
-            this.Column2.HeaderText = "Second Team";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MatchDateTime";
-            this.Column3.HeaderText = "Date-Time";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "MatchScore";
-            this.Column5.HeaderText = "Match-Score";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // btnCreateNewMatch
             // 
@@ -265,14 +242,16 @@ namespace Watc.UI
             this.dgvTeams.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1});
+            this.dataGridViewTextBoxColumn1,
+            this.Column8,
+            this.Column7});
             this.dgvTeams.Location = new System.Drawing.Point(9, 25);
             this.dgvTeams.MultiSelect = false;
             this.dgvTeams.Name = "dgvTeams";
             this.dgvTeams.ReadOnly = true;
             this.dgvTeams.RowHeadersVisible = false;
             this.dgvTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTeams.Size = new System.Drawing.Size(310, 195);
+            this.dgvTeams.Size = new System.Drawing.Size(518, 195);
             this.dgvTeams.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
@@ -281,6 +260,20 @@ namespace Watc.UI
             this.dataGridViewTextBoxColumn1.HeaderText = "Team Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "teamColors";
+            this.Column8.HeaderText = "Colors";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "teamPlayers";
+            this.Column7.HeaderText = "Players";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // lblAllTeams
             // 
@@ -367,7 +360,7 @@ namespace Watc.UI
             // 
             // btnColorRGBPreview
             // 
-            this.btnColorRGBPreview.Location = new System.Drawing.Point(395, 204);
+            this.btnColorRGBPreview.Location = new System.Drawing.Point(144, 103);
             this.btnColorRGBPreview.Name = "btnColorRGBPreview";
             this.btnColorRGBPreview.Size = new System.Drawing.Size(105, 57);
             this.btnColorRGBPreview.TabIndex = 24;
@@ -379,17 +372,17 @@ namespace Watc.UI
             // 
             this.lblColorRGBPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblColorRGBPreview.ForeColor = System.Drawing.Color.Maroon;
-            this.lblColorRGBPreview.Location = new System.Drawing.Point(399, 171);
+            this.lblColorRGBPreview.Location = new System.Drawing.Point(10, 115);
             this.lblColorRGBPreview.Name = "lblColorRGBPreview";
-            this.lblColorRGBPreview.Size = new System.Drawing.Size(93, 30);
+            this.lblColorRGBPreview.Size = new System.Drawing.Size(128, 30);
             this.lblColorRGBPreview.TabIndex = 23;
-            this.lblColorRGBPreview.Text = "Click Here to Preview Color";
+            this.lblColorRGBPreview.Text = "Click the Box at the Right to Preview Color with Selected RGB Values";
             this.lblColorRGBPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblColorBlue
             // 
             this.lblColorBlue.AutoSize = true;
-            this.lblColorBlue.Location = new System.Drawing.Point(286, 274);
+            this.lblColorBlue.Location = new System.Drawing.Point(283, 302);
             this.lblColorBlue.Name = "lblColorBlue";
             this.lblColorBlue.Size = new System.Drawing.Size(52, 13);
             this.lblColorBlue.TabIndex = 22;
@@ -398,7 +391,7 @@ namespace Watc.UI
             // lblColorGreen
             // 
             this.lblColorGreen.AutoSize = true;
-            this.lblColorGreen.Location = new System.Drawing.Point(283, 221);
+            this.lblColorGreen.Location = new System.Drawing.Point(280, 249);
             this.lblColorGreen.Name = "lblColorGreen";
             this.lblColorGreen.Size = new System.Drawing.Size(60, 13);
             this.lblColorGreen.TabIndex = 21;
@@ -407,7 +400,7 @@ namespace Watc.UI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 248);
+            this.label9.Location = new System.Drawing.Point(8, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 20;
@@ -416,7 +409,7 @@ namespace Watc.UI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 197);
+            this.label8.Location = new System.Drawing.Point(8, 225);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 19;
@@ -424,7 +417,7 @@ namespace Watc.UI
             // 
             // hsbColorBlue
             // 
-            this.hsbColorBlue.Location = new System.Drawing.Point(14, 274);
+            this.hsbColorBlue.Location = new System.Drawing.Point(11, 302);
             this.hsbColorBlue.Maximum = 264;
             this.hsbColorBlue.Name = "hsbColorBlue";
             this.hsbColorBlue.Size = new System.Drawing.Size(262, 17);
@@ -433,7 +426,7 @@ namespace Watc.UI
             // 
             // hsbColorGreen
             // 
-            this.hsbColorGreen.Location = new System.Drawing.Point(14, 221);
+            this.hsbColorGreen.Location = new System.Drawing.Point(11, 249);
             this.hsbColorGreen.Maximum = 264;
             this.hsbColorGreen.Name = "hsbColorGreen";
             this.hsbColorGreen.Size = new System.Drawing.Size(262, 17);
@@ -443,7 +436,7 @@ namespace Watc.UI
             // lblColorRed
             // 
             this.lblColorRed.AutoSize = true;
-            this.lblColorRed.Location = new System.Drawing.Point(284, 167);
+            this.lblColorRed.Location = new System.Drawing.Point(281, 195);
             this.lblColorRed.Name = "lblColorRed";
             this.lblColorRed.Size = new System.Drawing.Size(51, 13);
             this.lblColorRed.TabIndex = 16;
@@ -452,7 +445,7 @@ namespace Watc.UI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 144);
+            this.label7.Location = new System.Drawing.Point(8, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 15;
@@ -460,7 +453,7 @@ namespace Watc.UI
             // 
             // hsbColorRed
             // 
-            this.hsbColorRed.Location = new System.Drawing.Point(14, 167);
+            this.hsbColorRed.Location = new System.Drawing.Point(11, 195);
             this.hsbColorRed.Maximum = 264;
             this.hsbColorRed.Name = "hsbColorRed";
             this.hsbColorRed.Size = new System.Drawing.Size(262, 17);
@@ -480,15 +473,15 @@ namespace Watc.UI
             // 
             // txtColorName
             // 
-            this.txtColorName.Location = new System.Drawing.Point(9, 109);
+            this.txtColorName.Location = new System.Drawing.Point(390, 29);
             this.txtColorName.Name = "txtColorName";
-            this.txtColorName.Size = new System.Drawing.Size(334, 20);
+            this.txtColorName.Size = new System.Drawing.Size(110, 20);
             this.txtColorName.TabIndex = 8;
             // 
             // lblBlueValue
             // 
             this.lblBlueValue.AutoSize = true;
-            this.lblBlueValue.Location = new System.Drawing.Point(86, 248);
+            this.lblBlueValue.Location = new System.Drawing.Point(83, 276);
             this.lblBlueValue.Name = "lblBlueValue";
             this.lblBlueValue.Size = new System.Drawing.Size(55, 13);
             this.lblBlueValue.TabIndex = 6;
@@ -497,7 +490,7 @@ namespace Watc.UI
             // lblGreenValue
             // 
             this.lblGreenValue.AutoSize = true;
-            this.lblGreenValue.Location = new System.Drawing.Point(86, 197);
+            this.lblGreenValue.Location = new System.Drawing.Point(83, 225);
             this.lblGreenValue.Name = "lblGreenValue";
             this.lblGreenValue.Size = new System.Drawing.Size(63, 13);
             this.lblGreenValue.TabIndex = 5;
@@ -506,7 +499,7 @@ namespace Watc.UI
             // lblRedValue
             // 
             this.lblRedValue.AutoSize = true;
-            this.lblRedValue.Location = new System.Drawing.Point(86, 144);
+            this.lblRedValue.Location = new System.Drawing.Point(83, 172);
             this.lblRedValue.Name = "lblRedValue";
             this.lblRedValue.Size = new System.Drawing.Size(54, 13);
             this.lblRedValue.TabIndex = 4;
@@ -515,7 +508,7 @@ namespace Watc.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 88);
+            this.label2.Location = new System.Drawing.Point(388, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 3;
@@ -543,7 +536,7 @@ namespace Watc.UI
             // 
             // btnCreateColor
             // 
-            this.btnCreateColor.Location = new System.Drawing.Point(388, 31);
+            this.btnCreateColor.Location = new System.Drawing.Point(388, 55);
             this.btnCreateColor.Name = "btnCreateColor";
             this.btnCreateColor.Size = new System.Drawing.Size(112, 70);
             this.btnCreateColor.TabIndex = 0;
@@ -556,7 +549,7 @@ namespace Watc.UI
             this.tabPage3.Controls.Add(this.btnDeleteSelectedPlayer);
             this.tabPage3.Controls.Add(this.btnEditSelectedPlayer);
             this.tabPage3.Controls.Add(this.rbShowPlayersAccordingtoTeam);
-            this.tabPage3.Controls.Add(this.btCreateNewPlayer);
+            this.tabPage3.Controls.Add(this.BtnCreateNewPlayer);
             this.tabPage3.Controls.Add(this.rbShowAllPlayers);
             this.tabPage3.Controls.Add(this.lblSelectTeamToSeePlayers);
             this.tabPage3.Controls.Add(this.chkTeamsToListPlayers);
@@ -601,15 +594,15 @@ namespace Watc.UI
             this.rbShowPlayersAccordingtoTeam.UseVisualStyleBackColor = true;
             this.rbShowPlayersAccordingtoTeam.CheckedChanged += new System.EventHandler(this.rbShowPlayersAccordingtoTeam_CheckedChanged);
             // 
-            // btCreateNewPlayer
+            // BtnCreateNewPlayer
             // 
-            this.btCreateNewPlayer.Location = new System.Drawing.Point(291, 151);
-            this.btCreateNewPlayer.Name = "btCreateNewPlayer";
-            this.btCreateNewPlayer.Size = new System.Drawing.Size(188, 23);
-            this.btCreateNewPlayer.TabIndex = 0;
-            this.btCreateNewPlayer.Text = "Create a New Player";
-            this.btCreateNewPlayer.UseVisualStyleBackColor = true;
-            this.btCreateNewPlayer.Click += new System.EventHandler(this.btCreateNewPlayer_Click);
+            this.BtnCreateNewPlayer.Location = new System.Drawing.Point(291, 151);
+            this.BtnCreateNewPlayer.Name = "BtnCreateNewPlayer";
+            this.BtnCreateNewPlayer.Size = new System.Drawing.Size(188, 23);
+            this.BtnCreateNewPlayer.TabIndex = 0;
+            this.BtnCreateNewPlayer.Text = "Create a New Player";
+            this.BtnCreateNewPlayer.UseVisualStyleBackColor = true;
+            this.BtnCreateNewPlayer.Click += new System.EventHandler(this.BtnCreateNewPlayer_Click);
             // 
             // rbShowAllPlayers
             // 
@@ -676,6 +669,41 @@ namespace Watc.UI
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Id";
+            this.Column9.HeaderText = "Id";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Team1Name";
+            this.Column1.HeaderText = "First Team";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Team2Name";
+            this.Column2.HeaderText = "Second Team";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MatchDateTime";
+            this.Column3.HeaderText = "Date-Time";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "MatchScore";
+            this.Column5.HeaderText = "Match-Score";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // FrmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,10 +740,6 @@ namespace Watc.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvMatches;
         private System.Windows.Forms.CheckBox chbHidePlayedMatches;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnDeleteSelectedColor;
         private System.Windows.Forms.Button btnEditSelectedColor;
         private System.Windows.Forms.Button btnCreateColor;
@@ -740,7 +764,7 @@ namespace Watc.UI
         private System.Windows.Forms.Label lblSelectTeamToSeePlayers;
         private System.Windows.Forms.ComboBox chkTeamsToListPlayers;
         private System.Windows.Forms.DataGridView dgvPlayers;
-        private System.Windows.Forms.Button btCreateNewPlayer;
+        private System.Windows.Forms.Button BtnCreateNewPlayer;
         private System.Windows.Forms.RadioButton rbShowPlayersAccordingtoTeam;
         private System.Windows.Forms.RadioButton rbShowAllPlayers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -752,8 +776,15 @@ namespace Watc.UI
         private System.Windows.Forms.Button btnCreateNewTeam;
         private System.Windows.Forms.Button btnAddColorToSelectedTeam;
         private System.Windows.Forms.DataGridView dgvTeams;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNewTeamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

@@ -13,19 +13,27 @@ namespace Watc.Data
         public virtual List<Color> Colors { get; set; }
         public virtual List<Player> Players { get; set; }
         public virtual List<Match> Matches { get; set; }
-        
-        public string players => PlayersText();
+        public string teamPlayers => $"{PlayersText()}"; 
+        public string teamColors => ColorText(); 
 
-        private string PlayersText()
+        public string PlayersText()
         {
-            string x = "";
+            List<string> lst = new List<string>();
             foreach (Player player in Players)
             {
-                x += "," + player.PlayerName;
+                 lst.Add(player.PlayerName);
             }
-            return x;
+            return string.Join(",",lst);
         }
-
+        public string ColorText()
+        {
+            List<string> lst = new List<string>();
+            foreach (Color color in Colors)
+            {
+                lst.Add(color.ColorName);
+            }
+            return string.Join(",", lst);
+        }
 
 
         //public string MatchScore => $"{MatchScoreText()}";

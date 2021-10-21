@@ -29,7 +29,7 @@ namespace Watc.UI
             Team team = db.Teams.FirstOrDefault(t => t.Id == this.team.Id);
             lblTeamName.Text = team.Name;
             dgvTeamPlayers.DataSource = team.Players.ToList();
-            cbAllPlayers.DataSource = db.Players.ToList();
+            cbAllPlayers.DataSource = db.Players.Where(player => player.Team.Id == null).OrderBy(player => player.PlayerName).ToList();
         }
 
         private void btnAddPlayerToTeam_Click(object sender, EventArgs e)
@@ -40,6 +40,7 @@ namespace Watc.UI
             db.SaveChanges();
             MessageBox.Show("player has saved");
             dgvTeamPlayers.DataSource = team.Players.ToList();
+            cbAllPlayers.DataSource = db.Players.Where(plyr => plyr.Team.Id == null).OrderBy(plyr => plyr.PlayerName).ToList();
         }
 
         private void btnRemoveSelectedPlayer_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace Watc.UI
             db.SaveChanges();
             MessageBox.Show("player has removed");
             dgvTeamPlayers.DataSource = team.Players.ToList();
+            LoadPlayers();
         }
     }
 }

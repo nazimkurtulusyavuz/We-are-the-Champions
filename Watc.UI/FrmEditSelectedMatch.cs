@@ -13,8 +13,8 @@ namespace Watc.UI
 {
     public partial class FrmEditSelectedMatch : Form
     {
-        WatcContext db;
-        Match match;
+        readonly WatcContext db;
+        readonly Match match;
         public FrmEditSelectedMatch(WatcContext db,Match match)
         {
             InitializeComponent();

@@ -33,7 +33,14 @@ namespace Watc.UI
         private void btnSaveColor_Click(object sender, EventArgs e)
         {
             Team team1 = db.Teams.Where(team2 => team2.Name == team.Name).FirstOrDefault();
-            team1.Colors.Add((Data.Color)cbAllColors.SelectedItem);
+            Data.Color color = (Data.Color)cbAllColors.SelectedItem;
+            string colorName = color.ColorName;
+            if (team1.Colors.Any(x => x.ColorName == colorName))
+            {
+                MessageBox.Show("selected color has exists");
+                return;
+            }
+            team1.Colors.Add(color);
             db.SaveChanges();
             MessageBox.Show("Color has Saved");
             dgvTeamColors.DataSource = team1.Colors.ToList();

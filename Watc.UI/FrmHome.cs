@@ -15,7 +15,7 @@ namespace Watc.UI
 {
     public partial class FrmHome : Form
     {
-        WatcContext db = new WatcContext();
+        readonly WatcContext db = new WatcContext();
         //List<Match> playedMatches = new List<Match>();
         List<MatchviewModel> myMatchModels;
         
@@ -73,6 +73,7 @@ namespace Watc.UI
            (
               x => new MatchviewModel
               {
+                  Id = x.Id,
                   Team1Name = x.Team1.Name,
                   Team2Name = x.Team2.Name,
                   MatchDateTime = x.MatchTime.ToString(),    //MatchTime=(x.MatchTime).ToString("HH:mm");
@@ -94,25 +95,39 @@ namespace Watc.UI
         private void btnEditSelectedMatch_Click(object sender, EventArgs e)
         {
             MatchviewModel selectedRow = (MatchviewModel)dgvMatches.SelectedRows[0].DataBoundItem;
+            int selectedRowIndex = dgvMatches.SelectedRows[0].Index;
             Match match = selectedRow.Match;
             FrmEditSelectedMatch frm = new FrmEditSelectedMatch(db, match);
             frm.ShowDialog();
             LoadMatches();
+            dgvMatches.Rows[selectedRowIndex].Selected = true;
         }
 
         private void btnDeleteSelectedMatch_Click(object sender, EventArgs e)
         {
-            db.Matches.Remove((Match)dgvMatches.SelectedRows[0].DataBoundItem);
+            MatchviewModel mvm = (MatchviewModel)dgvMatches.SelectedRows[0].DataBoundItem;
+            int selectedRowIndex = dgvMatches.SelectedRows[0].Index;
+            Match match = mvm.Match;
+            db.Matches.Remove(match);
             db.SaveChanges();
             MessageBox.Show("Selected Match has deleted");
             LoadMatches();
+            if (selectedRowIndex == 0)
+            {
+                if (dgvMatches.Rows.Count == 0)
+                    return;
+                else
+                    dgvMatches.Rows[selectedRowIndex].Selected = true;
+            }
+            else
+                dgvMatches.Rows[selectedRowIndex-1].Selected = true;
         }
 
         private void chbHidePlayedMatches_CheckedChanged(object sender, EventArgs e)
         {
             dgvMatches.DataSource = chbHidePlayedMatches.Checked ? 
-                myMatchModels.Where(x => x.Match.MatchTime < DateTime.Now).ToList() : 
-                myMatchModels.ToList();
+            myMatchModels.Where(x => x.Match.MatchTime < DateTime.Now).ToList() : 
+            myMatchModels.ToList();
         }
 
         private void btnCreateColor_Click(object sender, EventArgs e)
@@ -124,6 +139,11 @@ namespace Watc.UI
             }
             else
             {
+                if (db.Colors.Any(x => x.ColorName == txtColorName.Text))
+                {
+                    MessageBox.Show("color exist");
+                    return;
+                }
                 Data.Color color = new Data.Color()
                 {
                     ColorName = txtColorName.Text,
@@ -135,7 +155,10 @@ namespace Watc.UI
                 db.Colors.Add(color);
                 db.SaveChanges();
                 MessageBox.Show("A new color saved to database");
+                LoadColors();
+                cbAllColors.SelectedItem = color;
             }
+            
         }
 
         private void hsbColorRed_Scroll(object sender, ScrollEventArgs e)
@@ -173,6 +196,8 @@ namespace Watc.UI
             color.Blue = hsbColorBlue.Value;
             db.SaveChanges();
             MessageBox.Show("Selected color has edited");
+            LoadColors();
+            cbAllColors.SelectedItem = color;
         }
 
         private void cbAllColors_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,7 +225,7 @@ namespace Watc.UI
             db.Colors.Remove(color);
             db.SaveChanges();
             MessageBox.Show("Selected color has deleted");
-
+            LoadColors();
         }
 
         private void rbShowPlayersAccordingtoTeam_CheckedChanged(object sender, EventArgs e)
@@ -240,8 +265,8 @@ namespace Watc.UI
                 LoadAllPlayers();
             }
         }
-
-        private void btCreateNewPlayer_Click(object sender, EventArgs e)
+       
+        private void BtnCreateNewPlayer_Click(object sender, EventArgs e)
         {
             FrmNewPlayer frm = new FrmNewPlayer(db);
             frm.ShowDialog();
@@ -281,6 +306,8 @@ namespace Watc.UI
             TeamviewModel twm = (TeamviewModel)dgvTeams.SelectedRows[0].DataBoundItem;
             FrmAddColorToSelectedTeam frm = new FrmAddColorToSelectedTeam(db,twm);
             frm.ShowDialog();
+            LoadTeams();
+
         }
 
         private void btnAddRemovePlayer_Click(object sender, EventArgs e)
@@ -288,16 +315,28 @@ namespace Watc.UI
             TeamviewModel twm = (TeamviewModel)dgvTeams.SelectedRows[0].DataBoundItem;
             FrmAddRemovePlayersFromTheSelectedTeam frm = new FrmAddRemovePlayersFromTheSelectedTeam(db, twm);
             frm.ShowDialog();
+            LoadTeams();
         }
 
         private void btnCreateNewTeam_Click(object sender, EventArgs e)
         {
-            Team team = new Team() { Name = txtNewTeamName.Text };
-            db.Teams.Add(team);
-            db.SaveChanges();
-            MessageBox.Show("Team has saved");
-            LoadTeams();
+            try
+            {
+                Team team = new Team() { Name = txtNewTeamName.Text };
+                db.Teams.Add(team);
+                db.SaveChanges();
+                MessageBox.Show("Team has saved");
+                LoadTeams();
+                txtNewTeamName.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("please fill the the name\n" + ex.Message);
+                
+            }
+            
         }
+
     }
     
 }
